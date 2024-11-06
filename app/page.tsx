@@ -1,101 +1,116 @@
+// import { Footer } from "@/components/custom/Footer";
+// import { Header } from "@/components/custom/Header";
+// import { Button } from "@/components/ui/button";
+// import Link from "next/link";
+
+// export default function HomePage() {
+//   return (
+//     <>
+//       <Header />
+//       <main className="relative flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: "url('/images/background.jpg')" }}>
+//         <div className="bg-black bg-opacity-50 p-8 sm:p-12 rounded-lg max-w-3xl text-center text-white my-32">
+//           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+//             Bienvenido al Portafolio del Artista
+//           </h1>
+//           <p className="text-lg sm:text-xl lg:text-2xl mb-8">
+//             Explora obras de óleo, acrílico y acuarela, y descubre el curso de iconografía.
+//           </p>
+//           <Link href="/galeria" passHref>
+//             <Button className="bg-teal-500 hover:bg-teal-400 text-white font-semibold px-6 py-3 rounded-lg text-lg sm:text-xl">
+//               Explorar la Galería
+//             </Button>
+//           </Link>
+//         </div>
+//       </main>
+//       <Footer />
+//     </>
+//   );
+// }
+
+import { Button } from "@/components/ui/button";
+import { ArrowUpRight, Facebook, Instagram, Twitter } from "lucide-react";
 import Image from "next/image";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-export default function Home() {
+export default function Component() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+    <div className="min-h-screen bg-[#f5e6d3] px-8 border-2 container pb-10">
+      <div className="relative">
+        <div className="p-4 "></div>
         <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+          width={876.78}
+          height={329.78}
+          src="/header.svg"
+          alt="Slider image"
+          className="px-8 object-cover w-full "
         />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+        <div className="absolute bottom-0 left-1/2 h-[30vh] w-[15%] -translate-x-1/2 translate-y-1/3 transform rounded-full bg-[#9ea8ae] "></div>
+        {/* <div className="absolute bottom-0 left-1/2 h-[30vh] w-[15%] -translate-x-1/2 translate-y-[56%] transform rounded-full bg-[#242322]"></div> */}
+      </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      <div className="container mx-auto mt-24 px-4">
+        <div className="grid gap-8 md:grid-cols-3">
+          <div className="space-y-6">
+            <h1 className="text-4xl font-bold md:text-6xl">
+              Arte en lo cotidiano.
+            </h1>
+            <p className="text-lg md:text-xl">
+              Explora mis obras y contáctame para más detalles.
+            </p>
+            <Button className="rounded-full px-6 py-4 text-lg">
+              Descubrí más
+            </Button>
+            <div className="flex space-x-4">
+              <Button variant="ghost" size="icon" className="rounded-full">
+                <Facebook className="h-6 w-6" />
+              </Button>
+              <Button variant="ghost" size="icon" className="rounded-full">
+                <Twitter className="h-6 w-6" />
+              </Button>
+              <Button variant="ghost" size="icon" className="rounded-full">
+                <Instagram className="h-6 w-6" />
+              </Button>
+            </div>
+          </div>
+
+          <div className="space-y-8">
+            <div>
+              <h2 className="text-2xl font-semibold">Obras hechas</h2>
+            </div>
+            <div className="flex -space-x-4">
+              {[1, 2, 3, 4].map((i) => (
+                <Avatar key={i}>
+                  <AvatarImage
+                    src={`https://placehold.co/40x40?text=User${i}`}
+                    alt={`User ${i}`}
+                  />
+                  <AvatarFallback>U{i}</AvatarFallback>
+                </Avatar>
+              ))}
+              <Avatar>
+                <AvatarFallback>+5</AvatarFallback>
+              </Avatar>
+            </div>
+            <div className="grid grid-cols-3 gap-4">
+              {["Ol", "Ac", "Ic"].map((planet) => (
+                <div key={planet} className="text-center">
+                  <Image
+                    src={`https://placehold.co/120x120/9ea8ae/ffffff?text=${planet}`}
+                    height={120}
+                    width={120}
+                    className="mx-auto mb-2 rounded-full"
+                    alt={planet}
+                  />
+                  <p className="mb-2 text-sm">Explore {planet}</p>
+                  <Button size="icon" className="rounded-full">
+                    <ArrowUpRight className="h-4 w-4" />
+                  </Button>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
     </div>
   );
 }
