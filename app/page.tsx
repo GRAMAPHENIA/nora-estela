@@ -92,7 +92,7 @@ export default function Component() {
               </Avatar>
             </div>
             <div className="grid grid-cols-3 gap-4">
-              {["Ol", "Ac", "Ic"].map((planet) => (
+              {["O", "A", "I"].map((planet) => (
                 <div key={planet} className="text-center">
                   <Image
                     src={`https://placehold.co/120x120/9ea8ae/ffffff?text=${planet}`}
