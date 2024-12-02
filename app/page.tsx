@@ -13,11 +13,7 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from "@/components/ui/hover-card";
+import { HoverCard, HoverCardTrigger } from "@/components/ui/hover-card";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Badge } from "@/components/ui/badge";
 
@@ -49,31 +45,6 @@ export default function Component() {
         <Button className="rounded-full px-6 py-4 text-lg mt-6 bg-[#6F8090] text-[#f5e6d3] hover:bg-[#5A6B7C]">
           Descubrí más
         </Button>
-
-        {/* Redes */}
-        {/* <div className="flex justify-center space-x-4 mt-6">
-          <Button
-            variant="ghost"
-            size="icon"
-            className="rounded-full bg-[#6F8090] text-[#f5e6d3] hover:bg-[#475768]"
-          >
-            <FaFacebookF className="h-6 w-6 text-[#f5e6d3]" />
-          </Button>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="rounded-full bg-[#6F8090] text-[#f5e6d3] hover:bg-[#475768]"
-          >
-            <FaTwitter className="h-6 w-6 text-[#f5e6d3]" />
-          </Button>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="rounded-full bg-[#6F8090] text-[#f5e6d3] hover:bg-[#475768]"
-          >
-            <FaInstagram className="h-6 w-6 text-[#f5e6d3]" />
-          </Button>
-        </div> */}
       </div>
 
       {/* Sección de "Realizado" ordenada y centrada */}
@@ -83,10 +54,10 @@ export default function Component() {
           {[1, 2, 3, 4].map((i) => (
             <Avatar key={i}>
               <AvatarImage
-                src={`https://placehold.co/40x40?text=U${i}`}
+                src={`https://placehold.co/40x40?text=foto${i}`}
                 alt={`User ${i}`}
               />
-              <AvatarFallback>U{i}</AvatarFallback>
+              <AvatarFallback>i{i}</AvatarFallback>
             </Avatar>
           ))}
           <Avatar>
@@ -149,17 +120,6 @@ export default function Component() {
                   </CardHeader>
                 </Card>
               </HoverCardTrigger>
-              <HoverCardContent
-                align="center"
-                className="flex justify-center bg-[#6F8090] text-[#f5e6d3] shadow-lg rounded-lg"
-              >
-                {/* <Button
-                variant="outline"
-                className="rounded-lg px-6 py-3 bg-[#5A6B7C] text-[#ffe5c4] hover:bg-[#556080] hover:text-[#f5e6d3]"
-              >
-                Ver detalles
-              </Button> */}
-              </HoverCardContent>
             </HoverCard>
           ))}
         </div>
