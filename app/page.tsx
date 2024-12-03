@@ -1,8 +1,7 @@
-import { Button } from "@/components/ui/button";
-import { ArrowUpRight, Calendar, MapPin } from "lucide-react";
-import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa"; // Reemplazo de iconos
+// Ruta: app/(routes)/page.tsx
 import Image from "next/image";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -13,78 +12,86 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { HoverCard, HoverCardTrigger } from "@/components/ui/hover-card";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
+import { ArrowUpRight, Calendar, MapPin } from "lucide-react";
 
-export default function Component() {
+export default function Home() {
   return (
-    <div className="min-h-screen bg-[#f5e6d3] px-8 border-2 container pb-10">
+    <div className="min-h-screen bg-[#f5e6d3]">
       {/* Sección de cabecera con imagen */}
-      <div className="relative">
-        <div className="p-4"></div>
+      <section className="relative">
         <Image
-          width={876.78}
-          height={329.78}
-          src="/header.svg"
+          src="/header.png"
           alt="Imagen del encabezado"
-          className="px-8 object-cover w-full"
+          width={1920}
+          height={1080}
+          className="w-full h-[400px] object-cover"
         />
-        {/* Logo centrado dentro de un contenedor circular */}
-        <div className="absolute bottom-0 left-1/2 h-[40.5%] w-[11.7%] -translate-x-[81px] translate-y-[50%] transform rounded-full bg-[#6F8090] overflow-hidden"></div>
-      </div>
+        <div className="absolute bottom-0 left-1/2 h-24 w-24 -translate-x-1/2 translate-y-1/2 transform rounded-full bg-[#6F8090] overflow-hidden">
+          {/* Aquí puedes agregar un logo o avatar */}
+        </div>
+      </section>
 
-      {/* Sección "Arte en lo cotidiano" centrada */}
-      <div className="container mx-auto mt-32 px-4 text-center">
+      {/* Sección "Arte en lo cotidiano" */}
+      <section className="container mx-auto mt-32 px-4 text-center">
         <h1 className="text-4xl font-bold md:text-6xl">
           Arte en lo cotidiano.
         </h1>
-        <p className="text-lg md:text-xl mt-4">
+        <p className="mt-4 text-lg md:text-xl">
           Explora mis obras y contáctame para más detalles.
         </p>
-        <Button className="rounded-full px-6 py-4 text-lg mt-6 bg-[#6F8090] text-[#f5e6d3] hover:bg-[#5A6B7C]">
+        <Button className="mt-6 rounded-full bg-[#6F8090] px-6 py-4 text-lg text-[#f5e6d3] hover:bg-[#5A6B7C]">
           Descubrí más
         </Button>
-      </div>
+      </section>
 
-      {/* Sección de "Realizado" ordenada y centrada */}
-      <div className="container mx-auto mt-24 px-4 text-center">
+      {/* Sección de "Realizado" */}
+      <section className="container mx-auto mt-24 px-4 text-center">
         <h2 className="text-5xl font-semibold">Realizado</h2>
-        <div className="flex justify-center -space-x-4 mt-4">
+        <div className="mt-4 flex justify-center -space-x-4">
           {[1, 2, 3, 4].map((i) => (
             <Avatar key={i}>
               <AvatarImage
                 src={`https://placehold.co/40x40?text=foto${i}`}
-                alt={`User ${i}`}
+                alt={`Usuario ${i}`}
               />
-              <AvatarFallback>i{i}</AvatarFallback>
+              <AvatarFallback>U{i}</AvatarFallback>
             </Avatar>
           ))}
           <Avatar>
             <AvatarFallback>+5</AvatarFallback>
           </Avatar>
         </div>
-        <div className="grid grid-cols-3 gap-4 mt-8 px-60">
-          {["O", "A", "I"].map((planet) => (
-            <div key={planet} className="text-center">
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 px-4 sm:px-60">
+          {[
+            { letter: "O", text: "Óleo", href: "/oleo" },
+            { letter: "A", text: "Acrílico", href: "/acrilico" },
+            { letter: "I", text: "Ilustración", href: "/ilustracion" },
+          ].map(({ letter, text, href }) => (
+            <div key={letter} className="text-center">
               <Image
-                src={`https://placehold.co/120x120/9ea8ae/ffffff?text=${planet}`}
+                src={`https://placehold.co/120x120/9ea8ae/ffffff?text=${letter}`}
                 height={120}
                 width={120}
+                alt={`${text}`}
                 className="mx-auto mb-2 rounded-full"
-                alt={planet}
               />
-              <p className="mb-2 text-sm text-[#f5e6d3]">Explore {planet}</p>
+              <p className="mb-2 text-sm text-[#6F8090]">Explora {text}</p>
               <Button
+                asChild
                 size="icon"
                 className="rounded-full bg-[#6F8090] text-[#f5e6d3] hover:bg-[#475768]"
               >
-                <ArrowUpRight className="h-4 w-4 " />
+                <Link href={href}>
+                  <ArrowUpRight className="h-4 w-4" />
+                  <span className="sr-only">Explorar {text}</span>
+                </Link>
               </Button>
             </div>
           ))}
         </div>
-      </div>
+      </section>
 
       {/* Sección de "Obras Destacadas" */}
       <section className="mt-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -93,41 +100,31 @@ export default function Component() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {[1, 2, 3].map((i) => (
-            <HoverCard key={i}>
-              <HoverCardTrigger asChild>
-                <Card className="bg-[#6F8090] text-[#f5e6d3] rounded-lg overflow-hidden">
-                  <AspectRatio ratio={16 / 9} className="relative">
-                    <Image
-                      src={`https://placehold.co/300x200/9ea8ae/ffffff?text=Obra+${i}`}
-                      layout="fill"
-                      className="object-cover"
-                      alt={`Obra ${i}`}
-                    />
-                  </AspectRatio>
-                  <CardHeader className="flex flex-col items-start p-4">
-                    <Badge
-                      variant="outline"
-                      className="bg-[#5A6B7C] text-[#ffe5c4] mb-2 border-none"
-                    >
-                      Obra {i}
-                    </Badge>
-                    <CardTitle className="text-xl font-bold">
-                      Técnica mixta sobre lienzo
-                    </CardTitle>
-                    <CardDescription className="text-sm text-[#f5e6d3]">
-                      Descripción breve de la obra
-                    </CardDescription>
-                  </CardHeader>
-                </Card>
-              </HoverCardTrigger>
-            </HoverCard>
+            <Card key={i} className="bg-[#6F8090] text-[#f5e6d3]">
+              <Image
+                src={`https://placehold.co/300x200/9ea8ae/ffffff?text=Obra+${i}`}
+                width={300}
+                height={200}
+                alt={`Obra ${i}`}
+                className="w-full object-cover"
+              />
+              <CardHeader>
+                <Badge variant="secondary" className="w-fit">
+                  Obra {i}
+                </Badge>
+                <CardTitle>Técnica mixta sobre lienzo</CardTitle>
+                <CardDescription className="text-[#f5e6d3]">
+                  Descripción breve de la obra
+                </CardDescription>
+              </CardHeader>
+            </Card>
           ))}
         </div>
       </section>
 
-      {/* Sección de "Próximas Curson" */}
+      {/* Sección de "Próximos Cursos" */}
       <section className="mt-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold mb-8 text-[#333]">Próximo Curso</h2>
+        <h2 className="text-3xl font-bold mb-8 text-[#333]">Próximos Cursos</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {[1, 2].map((i) => (
             <Card key={i} className="bg-[#6F8090] text-[#f5e6d3]">
@@ -144,13 +141,8 @@ export default function Component() {
                 </p>
               </CardContent>
               <CardFooter className="flex justify-between items-center">
-                <Button
-                  variant="outline"
-                  className="text-[#f5e6d3] hover:bg-[#5A6B7C] hover:text-[#f5e6d3]"
-                >
-                  Más información
-                </Button>
-                <span className="flex items-center text-sm text-[#f5e6d3]">
+                <Button variant="secondary">Más información</Button>
+                <span className="flex items-center text-sm">
                   <MapPin className="mr-1" /> Galería de Arte Moderno
                 </span>
               </CardFooter>
@@ -160,12 +152,12 @@ export default function Component() {
       </section>
 
       {/* Formulario de contacto */}
-      <section className="my-20 max-w-5xl mx-auto">
+      <section className="mt-20 pb-20 max-w-5xl mx-auto px-4">
         <h2 className="text-3xl font-bold mb-8 text-[#333]">Contacto</h2>
         <Card className="bg-[#6F8090] text-[#f5e6d3]">
-          <CardContent>
+          <CardContent className="pt-6">
             <form className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Input
                   placeholder="Nombre"
                   className="bg-[#f5e6d3] text-[#6F8090]"
@@ -187,41 +179,13 @@ export default function Component() {
               />
               <Button
                 type="submit"
-                className="w-full bg-[#f5e6d3] hover:bg-[#5A6B7C] text-[#6F8090]"
+                className="w-full bg-[#f5e6d3] text-[#6F8090] hover:bg-[#e0d1be]"
               >
                 Enviar Mensaje
               </Button>
             </form>
           </CardContent>
         </Card>
-      </section>
-
-      {/* Footer */}
-
-      <section>
-        <div className="flex justify-center space-x-4 mt-6">
-          <Button
-            variant="ghost"
-            size="icon"
-            className="rounded-full bg-[#6F8090] text-[#f5e6d3] hover:bg-[#475768]"
-          >
-            <FaFacebookF className="h-6 w-6 text-[#f5e6d3]" />
-          </Button>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="rounded-full bg-[#6F8090] text-[#f5e6d3] hover:bg-[#475768]"
-          >
-            <FaTwitter className="h-6 w-6 text-[#f5e6d3]" />
-          </Button>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="rounded-full bg-[#6F8090] text-[#f5e6d3] hover:bg-[#475768]"
-          >
-            <FaInstagram className="h-6 w-6 text-[#f5e6d3]" />
-          </Button>
-        </div>
       </section>
     </div>
   );
