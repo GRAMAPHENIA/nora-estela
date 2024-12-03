@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-import Link from "next/link";
 import { cn } from "@/lib/utils";
 // import { Icons } from "@/components/icons";
 import {
@@ -11,7 +10,6 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 
 const sections = [
@@ -21,25 +19,25 @@ const sections = [
     description: "Descubre las obras y el estilo del artista.",
   },
   {
-    title: "Galería",
-    href: "/galeria",
+    title: "Oleo",
+    href: "/oleo",
     description: "Explora las obras de óleo, acrílico y acuarela.",
   },
   {
-    title: "Curso",
-    href: "/curso",
+    title: "Acrilico",
+    href: "/acrilico",
     description: "Participa en un curso de iconografía y técnicas de pintura.",
   },
   {
-    title: "Contacto",
-    href: "/contacto",
+    title: "Iconografia",
+    href: "/iconografia",
     description: "Conéctate para más información o consultas.",
   },
 ];
 
 export function Header() {
   return (
-    <section className="flex justify-center">
+    <section className="hidden lg:block justify-center">
       <NavigationMenu>
         <NavigationMenuList>
           {sections.map((section) => (
@@ -54,13 +52,6 @@ export function Header() {
               </NavigationMenuContent>
             </NavigationMenuItem>
           ))}
-          <NavigationMenuItem>
-            <Link href="/docs" legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                Documentación
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
     </section>

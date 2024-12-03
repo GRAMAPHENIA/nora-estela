@@ -1,4 +1,5 @@
-// Ruta: app/(routes)/page.tsx
+// Ruta: app/page.tsx
+
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -18,7 +19,7 @@ import { ArrowUpRight, Calendar, MapPin } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#f5e6d3]">
+    <div className="min-h-screen">
       {/* Sección de cabecera con imagen */}
       <section className="relative">
         <Image
@@ -26,7 +27,7 @@ export default function Home() {
           alt="Imagen del encabezado"
           width={1920}
           height={1080}
-          className="w-full h-[400px] object-cover"
+          className="lg:max-w-7xl lg:h-[400px] object-contain lg:object-fit m-auto mt-4 px-4 lg:mt-10"
         />
         <div className="absolute bottom-0 left-1/2 h-24 w-24 -translate-x-1/2 translate-y-1/2 transform rounded-full bg-[#6F8090] overflow-hidden">
           {/* Aquí puedes agregar un logo o avatar */}
@@ -39,10 +40,10 @@ export default function Home() {
           Arte en lo cotidiano.
         </h1>
         <p className="mt-4 text-lg md:text-xl">
-          Explora mis obras y contáctame para más detalles.
+          Explora mis obras y contactame para más detalles.
         </p>
         <Button className="mt-6 rounded-full bg-[#6F8090] px-6 py-4 text-lg text-[#f5e6d3] hover:bg-[#5A6B7C]">
-          Descubrí más
+          contactar
         </Button>
       </section>
 
