@@ -23,13 +23,13 @@ export default function Home() {
       {/* Sección de cabecera con imagen */}
       <section className="relative">
         <Image
-          src="/header.png"
+          src="/header/header-tres.png"
           alt="Imagen del encabezado"
           width={1920}
           height={1080}
-          className="lg:max-w-7xl lg:h-[400px] object-contain lg:object-fit m-auto mt-4 px-4 lg:mt-10"
+          className="lg:max-w-7xl lg:h-[400px] object-contain lg:object-fit m-auto mt-4 px-4 lg:mt-10 opacity-80 contrast-100"
         />
-        <div className="absolute bottom-0 left-1/2 h-24 w-24 -translate-x-1/2 translate-y-1/2 transform rounded-full bg-[#6F8090] overflow-hidden">
+        <div className="absolute bottom-0 left-1/2 h-24 w-24 -translate-x-1/2 translate-y-1/2 transform rounded-full bg-rose-200/60 overflow-hidden border-2 border-gray-200/50">
           {/* Aquí puedes agregar un logo o avatar */}
         </div>
       </section>
@@ -47,52 +47,58 @@ export default function Home() {
         </Button>
       </section>
 
-      {/* Sección de "Realizado" */}
       <section className="container mx-auto mt-24 px-4 text-center">
-        <h2 className="text-5xl font-semibold">Realizado</h2>
-        <div className="mt-4 flex justify-center -space-x-4">
-          {[1, 2, 3, 4].map((i) => (
-            <Avatar key={i}>
-              <AvatarImage
-                src={`https://placehold.co/40x40?text=foto${i}`}
-                alt={`Usuario ${i}`}
-              />
-              <AvatarFallback>U{i}</AvatarFallback>
-            </Avatar>
-          ))}
-          <Avatar>
-            <AvatarFallback>+5</AvatarFallback>
-          </Avatar>
-        </div>
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 px-4 sm:px-60">
-          {[
-            { letter: "O", text: "Óleo", href: "/oleo" },
-            { letter: "A", text: "Acrílico", href: "/acrilico" },
-            { letter: "I", text: "Ilustración", href: "/ilustracion" },
-          ].map(({ letter, text, href }) => (
-            <div key={letter} className="text-center">
-              <Image
-                src={`https://placehold.co/120x120/9ea8ae/ffffff?text=${letter}`}
-                height={120}
-                width={120}
-                alt={`${text}`}
-                className="mx-auto mb-2 rounded-full"
-              />
-              <p className="mb-2 text-sm text-[#6F8090]">Explora {text}</p>
-              <Button
-                asChild
-                size="icon"
-                className="rounded-full bg-[#6F8090] text-[#f5e6d3] hover:bg-[#475768]"
-              >
-                <Link href={href}>
-                  <ArrowUpRight className="h-4 w-4" />
-                  <span className="sr-only">Explorar {text}</span>
-                </Link>
-              </Button>
-            </div>
-          ))}
-        </div>
-      </section>
+  <h2 className="text-5xl font-semibold">Realizado</h2>
+
+  {/* Avatares desde la carpeta public */}
+  <div className="mt-4 flex justify-center -space-x-4">
+    {[
+      { id: 1, src: "/seccion-realizado/uno.png", alt: "Usuario 1" },
+      { id: 2, src: "/realizado/avatars/foto2.jpg", alt: "Usuario 2" },
+      { id: 3, src: "/realizado/avatars/foto3.jpg", alt: "Usuario 3" },
+      { id: 4, src: "/realizado/avatars/foto4.jpg", alt: "Usuario 4" },
+    ].map(({ id, src, alt }) => (
+      <Avatar key={id}>
+        <AvatarImage src={src} alt={alt} />
+        <AvatarFallback>U{id}</AvatarFallback>
+      </Avatar>
+    ))}
+    <Avatar>
+      <AvatarFallback>+5</AvatarFallback>
+    </Avatar>
+  </div>
+
+  {/* Categorías con imágenes desde la carpeta public */}
+  <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 px-4 sm:px-60">
+    {[
+      { letter: "O", text: "Óleo", href: "/oleo", image: "/realizado/categories/oleo.jpg" },
+      { letter: "A", text: "Acrílico", href: "/acrilico", image: "/realizado/categories/acrilico.jpg" },
+      { letter: "I", text: "Ilustración", href: "/ilustracion", image: "/realizado/categories/ilustracion.jpg" },
+    ].map(({ letter, text, href, image }) => (
+      <div key={letter} className="text-center">
+        <Image
+          src={image}
+          height={120}
+          width={120}
+          alt={`${text}`}
+          className="mx-auto mb-2 rounded-full object-cover"
+        />
+        <p className="mb-2 text-sm text-[#6F8090]">Explora {text}</p>
+        <Button
+          asChild
+          size="icon"
+          className="rounded-full bg-[#6F8090] text-[#f5e6d3] hover:bg-[#475768]"
+        >
+          <Link href={href}>
+            <ArrowUpRight className="h-4 w-4" />
+            <span className="sr-only">Explorar {text}</span>
+          </Link>
+        </Button>
+      </div>
+    ))}
+  </div>
+</section>
+
 
       {/* Sección de "Obras Destacadas" */}
       <section className="mt-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -41,7 +41,7 @@ export function Navbar() {
   return (
     <nav className="bg-card p-4">
       <div className="container mx-auto flex justify-between items-center">
-        <Link href="/" className="text-[#f5e6d3] text-2xl font-bold">
+        <Link href="/" className="">
           Logo
         </Link>
 
