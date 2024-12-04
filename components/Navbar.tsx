@@ -13,22 +13,22 @@ import { Header } from "./custom/Header";
 const NavItems = () => (
   <>
     <Button asChild variant="ghost">
-      <Link href="/" className="text-[#f5e6d3]">
+      <Link href="/" className="text-card-foreground">
         Inicio
       </Link>
     </Button>
     <Button asChild variant="ghost">
-      <Link href="/oleo" className="text-[#f5e6d3]">
+      <Link href="/oleo" className="text-card-foreground">
         Óleo
       </Link>
     </Button>
     <Button asChild variant="ghost">
-      <Link href="/acrilico" className="text-[#f5e6d3]">
+      <Link href="/acrilico" className="ttext-card-foreground">
         Acrílico
       </Link>
     </Button>
     <Button asChild variant="ghost">
-      <Link href="/ilustracion" className="text-[#f5e6d3]">
+      <Link href="/ilustracion" className="text-card-foreground">
         Ilustración
       </Link>
     </Button>
@@ -58,7 +58,7 @@ export function Navbar() {
           </SheetTrigger>
           <SheetContent
             side="right"
-            className="w-[240px] sm:w-[300px] bg-[#6F8090]"
+            className="w-[240px] sm:w-[300px] bg-secondary"
           >
             <nav className="flex flex-col space-y-4 mt-4">
               <NavItems />

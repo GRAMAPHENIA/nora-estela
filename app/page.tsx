@@ -29,7 +29,7 @@ export default function Home() {
           height={1080}
           className="lg:max-w-7xl lg:h-[400px] object-contain lg:object-fit m-auto mt-4 px-4 lg:mt-10 opacity-80 contrast-100"
         />
-        <div className="absolute bottom-0 left-1/2 h-24 w-24 -translate-x-1/2 translate-y-1/2 transform rounded-full bg-amber-200/50 overflow-hidden border-2 border-gray-200/50">
+        <div className="absolute bottom-0 left-1/2 h-12 lg:h-24 w-12 lg:w-24 -translate-x-1/2 translate-y-1/2 transform rounded-full bg-red-700/50 overflow-hidden border-2 border-red-700/10">
           {/* Aquí puedes agregar un logo o avatar */}
         </div>
       </section>
